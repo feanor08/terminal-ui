@@ -1,0 +1,6 @@
+/**
+ * @feanor08/terminal-ui default stylesheet.
+ * Terminal Dark design tokens + component chrome for all exported React components.
+ */
+@import './styles/tokens.css';
+@import './styles/terminal.css';
