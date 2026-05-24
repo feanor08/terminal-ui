@@ -1,8 +1,8 @@
 # @feanor08/terminal-ui
 
-A flexible terminal/workbench design system.
+A flexible terminal/workbench design system. **Early v0.1.0 — API is not yet stable.**
 
-Starts as a lightweight React + CSS component library. Structured so its design tokens can export to iTerm2 color schemes, CSS themes, and other application palettes without touching React at all.
+Lightweight React + CSS component library. Structured so its design tokens can export to iTerm2 color schemes, CSS themes, and other application palettes without touching React at all.
 
 ---
 

@@ -1,0 +1,32 @@
+# Development sources — not needed by consumers
+src/
+scripts/
+.claude/
+
+# Tooling config
+vite.config.ts
+tsconfig*.json
+.eslintrc*
+eslint.config*
+
+# Caches and local state
+node_modules/
+.vite/
+coverage/
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Version control
+.git/
+.github/
+
+# Misc
+*.tgz
