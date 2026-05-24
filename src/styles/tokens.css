@@ -1,0 +1,200 @@
+/* Default tokens — Terminal Dark (THG palette) */
+:root {
+  /* base */
+  --tui-bg:              #272726;
+  --tui-bg-outside:      #30302E;
+  --tui-fg:              #D8D8D8;
+  --tui-surface:         #242423;
+  --tui-surface-raised:  #373634;
+  --tui-surface-pressed: #20201F;
+  --tui-border:          #454541;
+  --tui-border-strong:   #5A5A55;
+  --tui-muted:           #777B7C;
+
+  /* ansi */
+  --tui-black:           #1C1E1C;
+  --tui-red:             #F82848;
+  --tui-green:           #38D848;
+  --tui-yellow:          #F8C838;
+  --tui-blue:            #0898F8;
+  --tui-magenta:         #A576FF;
+  --tui-cyan:            #38D8C8;
+  --tui-white:           #D8D8D8;
+  --tui-bright-black:    #454541;
+  --tui-bright-red:      #FF5A74;
+  --tui-bright-green:    #66FF72;
+  --tui-bright-yellow:   #FFE36A;
+  --tui-bright-blue:     #35B3FF;
+  --tui-bright-magenta:  #C4A0FF;
+  --tui-bright-cyan:     #66EEE0;
+  --tui-bright-white:    #E8E8E8;
+
+  /* color families */
+  --tui-blue:            #0898F8;
+  --tui-blue-bright:     #35B3FF;
+  --tui-blue-dark:       #1B2932;
+  --tui-blue-soft:       rgba(8, 152, 248, 0.15);
+  --tui-blue-border:     rgba(8, 152, 248, 0.44);
+  --tui-blue-glow:       rgba(8, 152, 248, 0.20);
+
+  --tui-green:           #38D848;
+  --tui-green-bright:    #66FF72;
+  --tui-green-dark:      #1F3325;
+  --tui-green-soft:      rgba(56, 216, 72, 0.15);
+  --tui-green-border:    rgba(56, 216, 72, 0.42);
+  --tui-green-glow:      rgba(56, 216, 72, 0.22);
+
+  --tui-yellow:          #F8C838;
+  --tui-yellow-bright:   #FFE36A;
+  --tui-yellow-dark:     #332C16;
+  --tui-yellow-soft:     rgba(248, 200, 56, 0.15);
+  --tui-yellow-border:   rgba(248, 200, 56, 0.45);
+  --tui-yellow-glow:     rgba(248, 200, 56, 0.20);
+
+  --tui-red:             #F82848;
+  --tui-red-bright:      #FF5A74;
+  --tui-red-dark:        #341F1F;
+  --tui-red-soft:        rgba(248, 40, 72, 0.15);
+  --tui-red-border:      rgba(248, 40, 72, 0.46);
+  --tui-red-glow:        rgba(248, 40, 72, 0.20);
+
+  --tui-orange:          #F87838;
+  --tui-purple:          #A576FF;
+
+  /* text */
+  --tui-text-primary:    #D8D8D8;
+  --tui-text-bright:     #E8E8E8;
+  --tui-text-secondary:  #B8B8B6;
+  --tui-text-muted:      #A2A2A0;
+  --tui-text-dim:        #777B7C;
+  --tui-text-inverse:    #111312;
+
+  /* effects */
+  --tui-shadow:           0 24px 80px rgba(0, 0, 0, 0.34);
+  --tui-shadow-tight:     0 12px 30px rgba(0, 0, 0, 0.24);
+  --tui-glow:             0 0 0 5px rgba(8, 152, 248, 0.20);
+  --tui-scanline-opacity: 0;
+
+  /* shape */
+  --tui-radius-sm:   6px;
+  --tui-radius-md:   10px;
+  --tui-radius-lg:   14px;
+  --tui-radius-xl:   20px;
+  --tui-radius-pill: 999px;
+
+  /* spacing */
+  --tui-space-0:  0px;
+  --tui-space-1:  4px;
+  --tui-space-2:  8px;
+  --tui-space-3:  12px;
+  --tui-space-4:  16px;
+  --tui-space-5:  20px;
+  --tui-space-6:  24px;
+  --tui-space-8:  32px;
+  --tui-space-10: 40px;
+  --tui-space-12: 48px;
+  --tui-space-16: 64px;
+
+  /* typography */
+  --tui-font-mono:    'SFMono-Regular', 'Cascadia Mono', 'Cascadia Code', Menlo, Consolas, 'Liberation Mono', monospace;
+  --tui-font-sans:    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --tui-font-size-xs: 11px;
+  --tui-font-size-sm: 13px;
+  --tui-font-size-md: 15px;
+  --tui-font-size-lg: 17px;
+
+  /* terminal-specific */
+  --tui-terminal:          #111312;
+  --tui-terminal-soft:     #171918;
+  --tui-terminal-panel:    #1D1F1D;
+  --tui-terminal-raised:   #242624;
+  --tui-terminal-line:     #3B3F3C;
+  --tui-cursor:            #38D848;
+  --tui-selection-bg:      #1B2932;
+  --tui-selection-fg:      #E8E8E8;
+  --tui-tab-active-bg:     #1D1F1D;
+  --tui-tab-inactive-bg:   #171918;
+}
+
+/* Light theme override */
+.tui-light {
+  --tui-bg:              #f5f5f4;
+  --tui-bg-outside:      #e7e5e4;
+  --tui-fg:              #1c1b1a;
+  --tui-surface:         #ffffff;
+  --tui-surface-raised:  #f0efee;
+  --tui-surface-pressed: #e4e3e1;
+  --tui-border:          #d4d2ce;
+  --tui-border-strong:   #b5b2ac;
+  --tui-muted:           #78726a;
+
+  --tui-black:           #1c1b1a;
+  --tui-red:             #d4163c;
+  --tui-green:           #1a8c2a;
+  --tui-yellow:          #b87c00;
+  --tui-blue:            #0070cc;
+  --tui-magenta:         #7c4fd4;
+  --tui-cyan:            #0088aa;
+  --tui-white:           #6b6864;
+  --tui-bright-black:    #787470;
+  --tui-bright-red:      #f0325a;
+  --tui-bright-green:    #28b838;
+  --tui-bright-yellow:   #d49200;
+  --tui-bright-blue:     #1c8cf0;
+  --tui-bright-magenta:  #9870e8;
+  --tui-bright-cyan:     #00a8cc;
+  --tui-bright-white:    #1c1b1a;
+
+  --tui-blue:            #0070cc;
+  --tui-blue-bright:     #1c8cf0;
+  --tui-blue-dark:       #dbeeff;
+  --tui-blue-soft:       rgba(0, 112, 204, 0.10);
+  --tui-blue-border:     rgba(0, 112, 204, 0.40);
+  --tui-blue-glow:       rgba(0, 112, 204, 0.15);
+
+  --tui-green:           #1a8c2a;
+  --tui-green-bright:    #28b838;
+  --tui-green-dark:      #dcf5e0;
+  --tui-green-soft:      rgba(26, 140, 42, 0.10);
+  --tui-green-border:    rgba(26, 140, 42, 0.38);
+  --tui-green-glow:      rgba(26, 140, 42, 0.15);
+
+  --tui-yellow:          #b87c00;
+  --tui-yellow-bright:   #d49200;
+  --tui-yellow-dark:     #fdf3d0;
+  --tui-yellow-soft:     rgba(184, 124, 0, 0.10);
+  --tui-yellow-border:   rgba(184, 124, 0, 0.40);
+  --tui-yellow-glow:     rgba(184, 124, 0, 0.15);
+
+  --tui-red:             #d4163c;
+  --tui-red-bright:      #f0325a;
+  --tui-red-dark:        #ffe0e5;
+  --tui-red-soft:        rgba(212, 22, 60, 0.10);
+  --tui-red-border:      rgba(212, 22, 60, 0.38);
+  --tui-red-glow:        rgba(212, 22, 60, 0.15);
+
+  --tui-orange:          #c45c10;
+  --tui-purple:          #6930cc;
+
+  --tui-text-primary:    #1c1b1a;
+  --tui-text-bright:     #0a0908;
+  --tui-text-secondary:  #3c3a38;
+  --tui-text-muted:      #78726a;
+  --tui-text-dim:        #a09890;
+  --tui-text-inverse:    #f5f5f4;
+
+  --tui-shadow:          0 24px 80px rgba(0, 0, 0, 0.10);
+  --tui-shadow-tight:    0 12px 30px rgba(0, 0, 0, 0.08);
+  --tui-glow:            0 0 0 5px rgba(0, 112, 204, 0.15);
+
+  --tui-terminal:          #f0efee;
+  --tui-terminal-soft:     #f8f7f6;
+  --tui-terminal-panel:    #ffffff;
+  --tui-terminal-raised:   #e8e6e3;
+  --tui-terminal-line:     #d4d2ce;
+  --tui-cursor:            #1a8c2a;
+  --tui-selection-bg:      #dbeeff;
+  --tui-selection-fg:      #0a0908;
+  --tui-tab-active-bg:     #ffffff;
+  --tui-tab-inactive-bg:   #f0efee;
+}

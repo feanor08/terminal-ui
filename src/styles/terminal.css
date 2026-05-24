@@ -1,0 +1,592 @@
+/* ── Reset ─────────────────────────────────────────── */
+.tui-shell *,
+.tui-shell *::before,
+.tui-shell *::after {
+  box-sizing: border-box;
+}
+
+/* ────────────────────────────────────────────────────
+   Shell
+──────────────────────────────────────────────────── */
+.tui-shell {
+  background-color: var(--tui-bg-outside);
+  color: var(--tui-text-primary);
+  font-family: var(--tui-font-sans);
+  font-size: var(--tui-font-size-md);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ────────────────────────────────────────────────────
+   Titlebar
+──────────────────────────────────────────────────── */
+.tui-titlebar {
+  display: flex;
+  align-items: center;
+  gap: var(--tui-space-3);
+  padding: 0 var(--tui-space-4);
+  height: 46px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+              var(--tui-bg);
+  border-bottom: 1px solid var(--tui-border);
+  font-family: var(--tui-font-mono);
+  font-size: var(--tui-font-size-sm);
+  color: var(--tui-text-dim);
+  user-select: none;
+}
+
+.tui-titlebar__dots {
+  display: flex;
+  gap: var(--tui-space-2);
+  flex-shrink: 0;
+}
+
+.tui-titlebar__dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--tui-muted);
+}
+
+.tui-titlebar__dot--close { background-color: var(--tui-red); }
+.tui-titlebar__dot--min   { background-color: var(--tui-yellow); }
+.tui-titlebar__dot--max   { background-color: var(--tui-green); }
+
+.tui-titlebar__title {
+  flex: 1;
+  text-align: center;
+  color: var(--tui-text-muted);
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ────────────────────────────────────────────────────
+   Panel
+──────────────────────────────────────────────────── */
+.tui-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008)),
+              var(--tui-bg);
+  border: 1px solid var(--tui-border);
+  border-radius: var(--tui-radius-xl);
+  padding: var(--tui-space-6);
+  box-shadow: var(--tui-shadow);
+}
+
+.tui-panel.tui-blue   { border-color: var(--tui-blue-border);   background: linear-gradient(180deg, var(--tui-blue-soft),   transparent), var(--tui-bg); box-shadow: 0 0 0 5px var(--tui-blue-glow),   var(--tui-shadow); }
+.tui-panel.tui-green  { border-color: var(--tui-green-border);  background: linear-gradient(180deg, var(--tui-green-soft),  transparent), var(--tui-bg); box-shadow: 0 0 0 5px var(--tui-green-glow),  var(--tui-shadow); }
+.tui-panel.tui-yellow { border-color: var(--tui-yellow-border); background: linear-gradient(180deg, var(--tui-yellow-soft), transparent), var(--tui-bg); box-shadow: 0 0 0 5px var(--tui-yellow-glow), var(--tui-shadow); }
+.tui-panel.tui-red    { border-color: var(--tui-red-border);    background: linear-gradient(180deg, var(--tui-red-soft),    transparent), var(--tui-bg); box-shadow: 0 0 0 5px var(--tui-red-glow),    var(--tui-shadow); }
+
+.tui-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--tui-space-4);
+  gap: var(--tui-space-3);
+}
+
+.tui-panel__title {
+  color: var(--tui-text-bright);
+  font-size: 1.1rem;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* ────────────────────────────────────────────────────
+   Status Tag / Chip
+──────────────────────────────────────────────────── */
+.tui-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--tui-space-2);
+  padding: 6px 10px;
+  border-radius: var(--tui-radius-pill);
+  font-size: 0.78rem;
+  font-weight: 850;
+  border: 1px solid var(--tui-border);
+  background: var(--tui-surface-raised);
+  color: var(--tui-text-muted);
+  white-space: nowrap;
+}
+
+.tui-status-tag.tui-blue {
+  color: var(--tui-blue);
+  background: var(--tui-blue-soft);
+  border-color: var(--tui-blue-border);
+  box-shadow: 0 0 0 4px var(--tui-blue-glow);
+}
+
+.tui-status-tag.tui-green {
+  color: var(--tui-green);
+  background: var(--tui-green-soft);
+  border-color: var(--tui-green-border);
+  box-shadow: 0 0 0 4px var(--tui-green-glow);
+}
+
+.tui-status-tag.tui-yellow {
+  color: var(--tui-yellow);
+  background: var(--tui-yellow-soft);
+  border-color: var(--tui-yellow-border);
+  box-shadow: 0 0 0 4px var(--tui-yellow-glow);
+}
+
+.tui-status-tag.tui-red {
+  color: var(--tui-red);
+  background: var(--tui-red-soft);
+  border-color: var(--tui-red-border);
+  box-shadow: 0 0 0 4px var(--tui-red-glow);
+}
+
+.tui-status-tag__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 25%, transparent);
+}
+
+/* ────────────────────────────────────────────────────
+   Metric
+──────────────────────────────────────────────────── */
+.tui-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tui-metric__label {
+  font-size: var(--tui-font-size-xs);
+  color: var(--tui-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.tui-metric__value {
+  font-size: 2rem;
+  font-weight: 950;
+  color: var(--tui-text-bright);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.tui-metric__delta {
+  font-size: var(--tui-font-size-sm);
+  font-weight: 700;
+}
+
+.tui-metric__delta--up   { color: var(--tui-green); }
+.tui-metric__delta--down { color: var(--tui-red); }
+.tui-metric__delta--flat { color: var(--tui-text-muted); }
+
+/* ────────────────────────────────────────────────────
+   Table
+──────────────────────────────────────────────────── */
+.tui-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--tui-radius-lg);
+  border: 1px solid var(--tui-border);
+}
+
+.tui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--tui-font-size-sm);
+  font-family: var(--tui-font-mono);
+}
+
+.tui-table th {
+  padding: var(--tui-space-2) var(--tui-space-3);
+  text-align: left;
+  font-size: var(--tui-font-size-xs);
+  font-weight: 900;
+  color: var(--tui-yellow);
+  background: var(--tui-surface-raised);
+  border-bottom: 1px solid var(--tui-border);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+
+.tui-table td {
+  padding: var(--tui-space-2) var(--tui-space-3);
+  border-bottom: 1px solid var(--tui-border);
+  color: var(--tui-text-secondary);
+  vertical-align: middle;
+}
+
+.tui-table tr:last-child td { border-bottom: none; }
+
+.tui-table tbody tr:hover td {
+  background-color: var(--tui-surface-raised);
+}
+
+/* ────────────────────────────────────────────────────
+   Tabs
+──────────────────────────────────────────────────── */
+.tui-tabs {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008)),
+              var(--tui-bg);
+  border: 1px solid var(--tui-border);
+  border-radius: var(--tui-radius-xl);
+  box-shadow: var(--tui-shadow);
+  overflow: hidden;
+}
+
+.tui-tabs__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--tui-space-1);
+  padding: var(--tui-space-2) var(--tui-space-3);
+  border-bottom: 1px solid var(--tui-border);
+  background: var(--tui-surface);
+}
+
+.tui-tabs__tab {
+  padding: 8px 14px;
+  font-size: var(--tui-font-size-sm);
+  font-family: var(--tui-font-mono);
+  font-weight: 900;
+  color: var(--tui-text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--tui-radius-lg);
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+.tui-tabs__tab:hover {
+  color: var(--tui-text-bright);
+  background: var(--tui-surface-raised);
+}
+
+.tui-tabs__tab[aria-selected='true'],
+.tui-tabs__tab--active {
+  color: var(--tui-yellow);
+  background: var(--tui-yellow-soft);
+  border-color: var(--tui-yellow-border);
+  box-shadow: 0 0 0 4px var(--tui-yellow-glow);
+}
+
+.tui-tabs__tab--ok {
+  color: var(--tui-green);
+  background: var(--tui-green-soft);
+  border-color: var(--tui-green-border);
+}
+
+.tui-tabs__tab--err {
+  color: var(--tui-red);
+  background: var(--tui-red-soft);
+  border-color: var(--tui-red-border);
+}
+
+.tui-tabs__panel {
+  padding: var(--tui-space-6);
+}
+
+/* ────────────────────────────────────────────────────
+   Command Bar
+──────────────────────────────────────────────────── */
+.tui-command-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--tui-space-3);
+  padding: var(--tui-space-3) var(--tui-space-4);
+  background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(255,255,255,0.008)),
+              var(--tui-bg);
+  border: 1px solid var(--tui-border);
+  border-radius: var(--tui-radius-xl);
+  box-shadow: var(--tui-shadow-tight);
+  cursor: text;
+}
+
+.tui-command-bar__prompt {
+  color: var(--tui-green);
+  font-family: var(--tui-font-mono);
+  font-weight: 900;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.tui-command-bar__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--tui-text-primary);
+  font-family: var(--tui-font-mono);
+  font-size: var(--tui-font-size-md);
+  caret-color: var(--tui-cursor);
+}
+
+.tui-command-bar__input::placeholder {
+  color: var(--tui-text-dim);
+}
+
+/* ────────────────────────────────────────────────────
+   Toast
+──────────────────────────────────────────────────── */
+.tui-toast {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--tui-space-3);
+  padding: 14px var(--tui-space-4);
+  background: var(--tui-surface);
+  border: 1px solid var(--tui-border);
+  border-radius: var(--tui-radius-lg);
+  box-shadow: var(--tui-shadow-tight);
+  align-items: center;
+  animation: tui-toast-in 260ms ease both;
+}
+
+@keyframes tui-toast-in {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+.tui-toast.tui-blue   { background: var(--tui-blue-dark);   border-color: var(--tui-blue-border); }
+.tui-toast.tui-green  { background: var(--tui-green-dark);  border-color: var(--tui-green-border); }
+.tui-toast.tui-yellow { background: var(--tui-yellow-dark); border-color: var(--tui-yellow-border); }
+.tui-toast.tui-red    { background: var(--tui-red-dark);    border-color: var(--tui-red-border); }
+
+.tui-toast__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-weight: 950;
+  flex-shrink: 0;
+  font-size: var(--tui-font-size-md);
+}
+
+.tui-toast.tui-blue   .tui-toast__icon { color: var(--tui-blue);   background: rgba(8,  152, 248, 0.13); }
+.tui-toast.tui-green  .tui-toast__icon { color: var(--tui-green);  background: rgba(56, 216, 72,  0.13); }
+.tui-toast.tui-yellow .tui-toast__icon { color: var(--tui-yellow); background: rgba(248,200, 56,  0.13); }
+.tui-toast.tui-red    .tui-toast__icon { color: var(--tui-red);    background: rgba(248, 40, 72,  0.13); }
+
+.tui-toast__body { min-width: 0; }
+
+.tui-toast__title {
+  font-weight: 700;
+  color: var(--tui-text-bright);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.tui-toast__message {
+  color: var(--tui-text-muted);
+  font-size: 0.88rem;
+}
+
+.tui-toast__close {
+  background: transparent;
+  border: none;
+  color: var(--tui-text-dim);
+  cursor: pointer;
+  font-weight: 900;
+  font-size: var(--tui-font-size-md);
+  padding: 0;
+  line-height: 1;
+}
+
+.tui-toast__close:hover { color: var(--tui-text-primary); }
+
+/* ────────────────────────────────────────────────────
+   Progress Bar
+──────────────────────────────────────────────────── */
+.tui-progress { display: flex; flex-direction: column; gap: 6px; }
+
+.tui-progress__label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--tui-font-size-xs);
+  color: var(--tui-text-muted);
+  font-weight: 700;
+}
+
+.tui-progress__track {
+  height: 14px;
+  border-radius: var(--tui-radius-pill);
+  overflow: hidden;
+  background: var(--tui-surface-raised);
+  border: 1px solid var(--tui-border);
+  position: relative;
+}
+
+.tui-progress__fill {
+  height: 100%;
+  border-radius: var(--tui-radius-pill);
+  background: linear-gradient(90deg, var(--tui-blue), var(--tui-blue-bright));
+  transition: width 300ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tui-progress__fill--green  { background: linear-gradient(90deg, var(--tui-green),  var(--tui-green-bright)); }
+.tui-progress__fill--yellow { background: linear-gradient(90deg, var(--tui-yellow), var(--tui-yellow-bright)); }
+.tui-progress__fill--red    { background: linear-gradient(90deg, var(--tui-red),    var(--tui-red-bright)); }
+.tui-progress__fill--blue   { background: linear-gradient(90deg, var(--tui-blue),   var(--tui-blue-bright)); }
+
+/* shimmer */
+.tui-progress__fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: translateX(-100%);
+  animation: tui-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes tui-shimmer { to { transform: translateX(100%); } }
+
+/* ────────────────────────────────────────────────────
+   Kbd
+──────────────────────────────────────────────────── */
+.tui-kbd {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.tui-kbd kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 23px;
+  padding: 1px var(--tui-space-2);
+  background: var(--tui-terminal-raised);
+  border: 1px solid var(--tui-terminal-line);
+  border-radius: var(--tui-radius-sm);
+  font-family: var(--tui-font-mono);
+  font-size: var(--tui-font-size-xs);
+  color: var(--tui-text-bright);
+  line-height: 1.4;
+  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.tui-kbd__sep {
+  color: var(--tui-text-dim);
+  font-size: var(--tui-font-size-xs);
+  padding: 0 1px;
+}
+
+/* ────────────────────────────────────────────────────
+   Select Card
+──────────────────────────────────────────────────── */
+.tui-select-card {
+  border-radius: var(--tui-radius-xl);
+  padding: var(--tui-space-4);
+  background: var(--tui-surface);
+  border: 1px solid var(--tui-border);
+  cursor: pointer;
+  transition: all 140ms ease;
+  user-select: none;
+}
+
+.tui-select-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--tui-shadow-tight);
+}
+
+.tui-select-card:active {
+  transform: translateY(2px) scale(0.98);
+  box-shadow: inset 0 5px 16px rgba(0,0,0,0.34);
+}
+
+.tui-select-card.tui-blue.is-selected   { border-color: var(--tui-blue-border);   background: linear-gradient(180deg, var(--tui-blue-soft),   transparent), var(--tui-surface); box-shadow: 0 0 0 5px var(--tui-blue-glow); }
+.tui-select-card.tui-green.is-selected  { border-color: var(--tui-green-border);  background: linear-gradient(180deg, var(--tui-green-soft),  transparent), var(--tui-surface); box-shadow: 0 0 0 5px var(--tui-green-glow); }
+.tui-select-card.tui-yellow.is-selected { border-color: var(--tui-yellow-border); background: linear-gradient(180deg, var(--tui-yellow-soft), transparent), var(--tui-surface); box-shadow: 0 0 0 5px var(--tui-yellow-glow); }
+.tui-select-card.tui-red.is-selected    { border-color: var(--tui-red-border);    background: linear-gradient(180deg, var(--tui-red-soft),    transparent), var(--tui-surface); box-shadow: 0 0 0 5px var(--tui-red-glow); }
+
+.tui-select-card__number {
+  font-size: 2rem;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  margin-bottom: var(--tui-space-2);
+}
+
+.tui-select-card.tui-blue   .tui-select-card__number { color: var(--tui-blue); }
+.tui-select-card.tui-green  .tui-select-card__number { color: var(--tui-green); }
+.tui-select-card.tui-yellow .tui-select-card__number { color: var(--tui-yellow); }
+.tui-select-card.tui-red    .tui-select-card__number { color: var(--tui-red); }
+
+.tui-select-card__label {
+  color: var(--tui-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+/* ────────────────────────────────────────────────────
+   Button
+──────────────────────────────────────────────────── */
+.tui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--tui-space-2);
+  padding: 13px 18px;
+  min-height: 50px;
+  border: 1px solid var(--tui-border);
+  border-radius: 18px;
+  background: var(--tui-surface);
+  color: var(--tui-text-bright);
+  font-family: var(--tui-font-sans);
+  font-size: var(--tui-font-size-md);
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  box-shadow: var(--tui-shadow-tight);
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease,
+              border-color 120ms ease, color 120ms ease, filter 120ms ease;
+}
+
+.tui-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 5px rgba(255,255,255,0.045), var(--tui-shadow-tight);
+  filter: brightness(1.05);
+}
+
+.tui-btn:active {
+  transform: translateY(2px) scale(0.975);
+  box-shadow: inset 0 5px 16px rgba(0,0,0,0.34);
+  filter: brightness(0.96);
+}
+
+.tui-btn:disabled {
+  opacity: 0.42;
+  filter: grayscale(0.65);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tui-btn.tui-blue   { background: var(--tui-blue-soft);   border-color: var(--tui-blue-border);   color: var(--tui-blue); }
+.tui-btn.tui-green  { background: var(--tui-green-soft);  border-color: var(--tui-green-border);  color: var(--tui-green); }
+.tui-btn.tui-yellow { background: var(--tui-yellow-soft); border-color: var(--tui-yellow-border); color: var(--tui-yellow); }
+.tui-btn.tui-red    { background: var(--tui-red-soft);    border-color: var(--tui-red-border);    color: var(--tui-red); }
+
+.tui-btn.tui-blue:hover   { background: rgba(8,152,248,0.22);   color: var(--tui-blue-bright);   box-shadow: 0 0 0 5px var(--tui-blue-glow),   var(--tui-shadow-tight); }
+.tui-btn.tui-green:hover  { background: rgba(56,216,72,0.22);   color: var(--tui-green-bright);  box-shadow: 0 0 0 5px var(--tui-green-glow),  var(--tui-shadow-tight); }
+.tui-btn.tui-yellow:hover { background: rgba(248,200,56,0.22);  color: var(--tui-yellow-bright); box-shadow: 0 0 0 5px var(--tui-yellow-glow), var(--tui-shadow-tight); }
+.tui-btn.tui-red:hover    { background: rgba(248,40,72,0.22);   color: var(--tui-red-bright);    box-shadow: 0 0 0 5px var(--tui-red-glow),    var(--tui-shadow-tight); }
+
+/* spinner used inside buttons */
+.tui-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: tui-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes tui-spin { to { transform: rotate(360deg); } }

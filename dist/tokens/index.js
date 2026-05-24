@@ -1,0 +1,260 @@
+const e = {
+  name: "Terminal Dark",
+  slug: "terminal-dark",
+  appearance: "dark",
+  author: "feanor08",
+  description: "THG-style dark workbench theme. Warm near-black surfaces, vivid 4-color semantic system."
+}, a = {
+  background: "#272726",
+  backgroundOutside: "#30302E",
+  foreground: "#D8D8D8",
+  surface: "#242423",
+  surfaceRaised: "#373634",
+  surfacePressed: "#20201F",
+  border: "#454541",
+  borderStrong: "#5A5A55",
+  muted: "#777B7C"
+}, r = {
+  black: "#1C1E1C",
+  red: "#F82848",
+  green: "#38D848",
+  yellow: "#F8C838",
+  blue: "#0898F8",
+  magenta: "#A576FF",
+  cyan: "#38D8C8",
+  white: "#D8D8D8",
+  brightBlack: "#454541",
+  brightRed: "#FF5A74",
+  brightGreen: "#66FF72",
+  brightYellow: "#FFE36A",
+  brightBlue: "#35B3FF",
+  brightMagenta: "#C4A0FF",
+  brightCyan: "#66EEE0",
+  brightWhite: "#E8E8E8"
+}, t = {
+  blue: {
+    base: "#0898F8",
+    bright: "#35B3FF",
+    dark: "#1B2932",
+    soft: "rgba(8, 152, 248, 0.15)",
+    border: "rgba(8, 152, 248, 0.44)",
+    glow: "rgba(8, 152, 248, 0.20)"
+  },
+  green: {
+    base: "#38D848",
+    bright: "#66FF72",
+    dark: "#1F3325",
+    soft: "rgba(56, 216, 72, 0.15)",
+    border: "rgba(56, 216, 72, 0.42)",
+    glow: "rgba(56, 216, 72, 0.22)"
+  },
+  yellow: {
+    base: "#F8C838",
+    bright: "#FFE36A",
+    dark: "#332C16",
+    soft: "rgba(248, 200, 56, 0.15)",
+    border: "rgba(248, 200, 56, 0.45)",
+    glow: "rgba(248, 200, 56, 0.20)"
+  },
+  red: {
+    base: "#F82848",
+    bright: "#FF5A74",
+    dark: "#341F1F",
+    soft: "rgba(248, 40, 72, 0.15)",
+    border: "rgba(248, 40, 72, 0.46)",
+    glow: "rgba(248, 40, 72, 0.20)"
+  },
+  orange: "#F87838",
+  purple: "#A576FF"
+}, s = {
+  textPrimary: "#D8D8D8",
+  textBright: "#E8E8E8",
+  textSecondary: "#B8B8B6",
+  textMuted: "#A2A2A0",
+  textDim: "#777B7C",
+  textInverse: "#111312"
+}, o = {
+  shadow: "0 24px 80px rgba(0, 0, 0, 0.34)",
+  shadowTight: "0 12px 30px rgba(0, 0, 0, 0.24)",
+  glow: "0 0 0 5px rgba(8, 152, 248, 0.20)",
+  scanlineOpacity: 0
+}, n = {
+  radiusSm: "6px",
+  radiusMd: "10px",
+  radiusLg: "14px",
+  radiusXl: "20px",
+  radiusPill: "999px"
+}, c = {
+  space0: "0px",
+  space1: "4px",
+  space2: "8px",
+  space3: "12px",
+  space4: "16px",
+  space5: "20px",
+  space6: "24px",
+  space8: "32px",
+  space10: "40px",
+  space12: "48px",
+  space16: "64px"
+}, i = {
+  fontMono: "'SFMono-Regular', 'Cascadia Mono', 'Cascadia Code', Menlo, Consolas, 'Liberation Mono', monospace",
+  fontSans: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontSizeXs: "11px",
+  fontSizeSm: "13px",
+  fontSizeMd: "15px",
+  fontSizeLg: "17px"
+}, g = {
+  terminal: "#111312",
+  terminalSoft: "#171918",
+  terminalPanel: "#1D1F1D",
+  terminalRaised: "#242624",
+  terminalLine: "#3B3F3C",
+  cursorColor: "#38D848",
+  selectionBackground: "#1B2932",
+  selectionForeground: "#E8E8E8",
+  tabActiveBackground: "#1D1F1D",
+  tabInactiveBackground: "#171918"
+}, b = {
+  meta: e,
+  base: a,
+  ansi: r,
+  colors: t,
+  text: s,
+  effects: o,
+  shape: n,
+  spacing: c,
+  typography: i,
+  terminal: g
+}, p = {
+  name: "Terminal Light",
+  slug: "terminal-light",
+  appearance: "light",
+  author: "feanor08",
+  description: "Light workbench variant. Inverted surfaces, same 4-color semantic system."
+}, d = {
+  background: "#f5f5f4",
+  backgroundOutside: "#e7e5e4",
+  foreground: "#1c1b1a",
+  surface: "#ffffff",
+  surfaceRaised: "#f0efee",
+  surfacePressed: "#e4e3e1",
+  border: "#d4d2ce",
+  borderStrong: "#b5b2ac",
+  muted: "#78726a"
+}, f = {
+  black: "#1c1b1a",
+  red: "#d4163c",
+  green: "#1a8c2a",
+  yellow: "#b87c00",
+  blue: "#0070cc",
+  magenta: "#7c4fd4",
+  cyan: "#0088aa",
+  white: "#6b6864",
+  brightBlack: "#787470",
+  brightRed: "#f0325a",
+  brightGreen: "#28b838",
+  brightYellow: "#d49200",
+  brightBlue: "#1c8cf0",
+  brightMagenta: "#9870e8",
+  brightCyan: "#00a8cc",
+  brightWhite: "#1c1b1a"
+}, l = {
+  blue: {
+    base: "#0070cc",
+    bright: "#1c8cf0",
+    dark: "#dbeeff",
+    soft: "rgba(0, 112, 204, 0.10)",
+    border: "rgba(0, 112, 204, 0.40)",
+    glow: "rgba(0, 112, 204, 0.15)"
+  },
+  green: {
+    base: "#1a8c2a",
+    bright: "#28b838",
+    dark: "#dcf5e0",
+    soft: "rgba(26, 140, 42, 0.10)",
+    border: "rgba(26, 140, 42, 0.38)",
+    glow: "rgba(26, 140, 42, 0.15)"
+  },
+  yellow: {
+    base: "#b87c00",
+    bright: "#d49200",
+    dark: "#fdf3d0",
+    soft: "rgba(184, 124, 0, 0.10)",
+    border: "rgba(184, 124, 0, 0.40)",
+    glow: "rgba(184, 124, 0, 0.15)"
+  },
+  red: {
+    base: "#d4163c",
+    bright: "#f0325a",
+    dark: "#ffe0e5",
+    soft: "rgba(212, 22, 60, 0.10)",
+    border: "rgba(212, 22, 60, 0.38)",
+    glow: "rgba(212, 22, 60, 0.15)"
+  },
+  orange: "#c45c10",
+  purple: "#6930cc"
+}, x = {
+  textPrimary: "#1c1b1a",
+  textBright: "#0a0908",
+  textSecondary: "#3c3a38",
+  textMuted: "#78726a",
+  textDim: "#a09890",
+  textInverse: "#f5f5f4"
+}, u = {
+  shadow: "0 24px 80px rgba(0, 0, 0, 0.10)",
+  shadowTight: "0 12px 30px rgba(0, 0, 0, 0.08)",
+  glow: "0 0 0 5px rgba(0, 112, 204, 0.15)",
+  scanlineOpacity: 0
+}, h = {
+  radiusSm: "6px",
+  radiusMd: "10px",
+  radiusLg: "14px",
+  radiusXl: "20px",
+  radiusPill: "999px"
+}, m = {
+  space0: "0px",
+  space1: "4px",
+  space2: "8px",
+  space3: "12px",
+  space4: "16px",
+  space5: "20px",
+  space6: "24px",
+  space8: "32px",
+  space10: "40px",
+  space12: "48px",
+  space16: "64px"
+}, F = {
+  fontMono: "'SFMono-Regular', 'Cascadia Mono', 'Cascadia Code', Menlo, Consolas, 'Liberation Mono', monospace",
+  fontSans: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontSizeXs: "11px",
+  fontSizeSm: "13px",
+  fontSizeMd: "15px",
+  fontSizeLg: "17px"
+}, k = {
+  terminal: "#f0efee",
+  terminalSoft: "#f8f7f6",
+  terminalPanel: "#ffffff",
+  terminalRaised: "#e8e6e3",
+  terminalLine: "#d4d2ce",
+  cursorColor: "#1a8c2a",
+  selectionBackground: "#dbeeff",
+  selectionForeground: "#0a0908",
+  tabActiveBackground: "#ffffff",
+  tabInactiveBackground: "#f0efee"
+}, y = {
+  meta: p,
+  base: d,
+  ansi: f,
+  colors: l,
+  text: x,
+  effects: u,
+  shape: h,
+  spacing: m,
+  typography: F,
+  terminal: k
+}, S = b, w = y, B = [S, w];
+export {
+  B as ALL_THEMES,
+  S as TERMINAL_DARK,
+  w as TERMINAL_LIGHT
+};

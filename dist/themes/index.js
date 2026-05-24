@@ -1,0 +1,177 @@
+function f(u, t = ":root") {
+  const { base: o, ansi: i, colors: e, text: a, effects: g, shape: l, spacing: n, typography: d, terminal: s } = u, c = [
+    /* base */
+    ["--tui-bg", o.background],
+    ["--tui-bg-outside", o.backgroundOutside],
+    ["--tui-fg", o.foreground],
+    ["--tui-surface", o.surface],
+    ["--tui-surface-raised", o.surfaceRaised],
+    ["--tui-surface-pressed", o.surfacePressed],
+    ["--tui-border", o.border],
+    ["--tui-border-strong", o.borderStrong],
+    ["--tui-muted", o.muted],
+    /* ansi */
+    ["--tui-ansi-black", i.black],
+    ["--tui-ansi-red", i.red],
+    ["--tui-ansi-green", i.green],
+    ["--tui-ansi-yellow", i.yellow],
+    ["--tui-ansi-blue", i.blue],
+    ["--tui-ansi-magenta", i.magenta],
+    ["--tui-ansi-cyan", i.cyan],
+    ["--tui-ansi-white", i.white],
+    ["--tui-ansi-bright-black", i.brightBlack],
+    ["--tui-ansi-bright-red", i.brightRed],
+    ["--tui-ansi-bright-green", i.brightGreen],
+    ["--tui-ansi-bright-yellow", i.brightYellow],
+    ["--tui-ansi-bright-blue", i.brightBlue],
+    ["--tui-ansi-bright-magenta", i.brightMagenta],
+    ["--tui-ansi-bright-cyan", i.brightCyan],
+    ["--tui-ansi-bright-white", i.brightWhite],
+    /* color families */
+    ["--tui-blue", e.blue.base],
+    ["--tui-blue-bright", e.blue.bright],
+    ["--tui-blue-dark", e.blue.dark],
+    ["--tui-blue-soft", e.blue.soft],
+    ["--tui-blue-border", e.blue.border],
+    ["--tui-blue-glow", e.blue.glow],
+    ["--tui-green", e.green.base],
+    ["--tui-green-bright", e.green.bright],
+    ["--tui-green-dark", e.green.dark],
+    ["--tui-green-soft", e.green.soft],
+    ["--tui-green-border", e.green.border],
+    ["--tui-green-glow", e.green.glow],
+    ["--tui-yellow", e.yellow.base],
+    ["--tui-yellow-bright", e.yellow.bright],
+    ["--tui-yellow-dark", e.yellow.dark],
+    ["--tui-yellow-soft", e.yellow.soft],
+    ["--tui-yellow-border", e.yellow.border],
+    ["--tui-yellow-glow", e.yellow.glow],
+    ["--tui-red", e.red.base],
+    ["--tui-red-bright", e.red.bright],
+    ["--tui-red-dark", e.red.dark],
+    ["--tui-red-soft", e.red.soft],
+    ["--tui-red-border", e.red.border],
+    ["--tui-red-glow", e.red.glow],
+    ["--tui-orange", e.orange],
+    ["--tui-purple", e.purple],
+    /* text */
+    ["--tui-text-primary", a.textPrimary],
+    ["--tui-text-bright", a.textBright],
+    ["--tui-text-secondary", a.textSecondary],
+    ["--tui-text-muted", a.textMuted],
+    ["--tui-text-dim", a.textDim],
+    ["--tui-text-inverse", a.textInverse],
+    /* effects */
+    ["--tui-shadow", g.shadow],
+    ["--tui-shadow-tight", g.shadowTight],
+    ["--tui-glow", g.glow],
+    ["--tui-scanline-opacity", String(g.scanlineOpacity)],
+    /* shape */
+    ["--tui-radius-sm", l.radiusSm],
+    ["--tui-radius-md", l.radiusMd],
+    ["--tui-radius-lg", l.radiusLg],
+    ["--tui-radius-xl", l.radiusXl],
+    ["--tui-radius-pill", l.radiusPill],
+    /* spacing */
+    ["--tui-space-0", n.space0],
+    ["--tui-space-1", n.space1],
+    ["--tui-space-2", n.space2],
+    ["--tui-space-3", n.space3],
+    ["--tui-space-4", n.space4],
+    ["--tui-space-5", n.space5],
+    ["--tui-space-6", n.space6],
+    ["--tui-space-8", n.space8],
+    ["--tui-space-10", n.space10],
+    ["--tui-space-12", n.space12],
+    ["--tui-space-16", n.space16],
+    /* typography */
+    ["--tui-font-mono", d.fontMono],
+    ["--tui-font-sans", d.fontSans],
+    ["--tui-font-size-xs", d.fontSizeXs],
+    ["--tui-font-size-sm", d.fontSizeSm],
+    ["--tui-font-size-md", d.fontSizeMd],
+    ["--tui-font-size-lg", d.fontSizeLg],
+    /* terminal */
+    ["--tui-terminal", s.terminal],
+    ["--tui-terminal-soft", s.terminalSoft],
+    ["--tui-terminal-panel", s.terminalPanel],
+    ["--tui-terminal-raised", s.terminalRaised],
+    ["--tui-terminal-line", s.terminalLine],
+    ["--tui-cursor", s.cursorColor],
+    ["--tui-selection-bg", s.selectionBackground],
+    ["--tui-selection-fg", s.selectionForeground],
+    ["--tui-tab-active-bg", s.tabActiveBackground],
+    ["--tui-tab-inactive-bg", s.tabInactiveBackground]
+  ].map(([b, p]) => `  ${b}: ${p};`).join(`
+`);
+  return `${t} {
+${c}
+}
+`;
+}
+function h(u) {
+  const t = u.replace("#", ""), o = t.length === 3 ? t.split("").map((i) => i + i).join("") : t;
+  return {
+    r: parseInt(o.slice(0, 2), 16),
+    g: parseInt(o.slice(2, 4), 16),
+    b: parseInt(o.slice(4, 6), 16)
+  };
+}
+function r(u, t) {
+  const { r: o, g: i, b: e } = h(t), a = (o / 255).toFixed(6), g = (i / 255).toFixed(6), l = (e / 255).toFixed(6);
+  return `	<key>${u}</key>
+	<dict>
+		<key>Alpha Component</key>
+		<real>1</real>
+		<key>Blue Component</key>
+		<real>${l}</real>
+		<key>Color Space</key>
+		<string>sRGB</string>
+		<key>Green Component</key>
+		<real>${g}</real>
+		<key>Red Component</key>
+		<real>${a}</real>
+	</dict>`;
+}
+function m(u) {
+  const { ansi: t, base: o, terminal: i } = u;
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+${[
+    r("Ansi 0 Color", t.black),
+    r("Ansi 1 Color", t.red),
+    r("Ansi 2 Color", t.green),
+    r("Ansi 3 Color", t.yellow),
+    r("Ansi 4 Color", t.blue),
+    r("Ansi 5 Color", t.magenta),
+    r("Ansi 6 Color", t.cyan),
+    r("Ansi 7 Color", t.white),
+    r("Ansi 8 Color", t.brightBlack),
+    r("Ansi 9 Color", t.brightRed),
+    r("Ansi 10 Color", t.brightGreen),
+    r("Ansi 11 Color", t.brightYellow),
+    r("Ansi 12 Color", t.brightBlue),
+    r("Ansi 13 Color", t.brightMagenta),
+    r("Ansi 14 Color", t.brightCyan),
+    r("Ansi 15 Color", t.brightWhite),
+    r("Background Color", o.background),
+    r("Foreground Color", o.foreground),
+    r("Bold Color", o.foreground),
+    r("Cursor Color", i.cursorColor),
+    r("Cursor Text Color", o.background),
+    r("Selection Color", i.selectionBackground),
+    r("Selected Text Color", i.selectionForeground),
+    r("Link Color", t.cyan),
+    r("Badge Color", t.red)
+  ].join(`
+`)}
+</dict>
+</plist>
+`;
+}
+export {
+  f as tokensToCss,
+  m as tokensToIterm
+};
