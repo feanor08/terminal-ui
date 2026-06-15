@@ -4,6 +4,8 @@ A flexible terminal/workbench design system. **Early v0.1.0 — API is not yet s
 
 Lightweight React + CSS component library. Structured so its design tokens can export to iTerm2 color schemes, CSS themes, and other application palettes without touching React at all.
 
+This repo is adjacent to THG rather than a deployed THG service. It provides reusable UI primitives and token exports that can be consumed by THG frontends or any other React app. There is no backend, database, or secrets footprint in this package.
+
 ---
 
 ## Install
@@ -13,6 +15,33 @@ npm install @feanor08/terminal-ui
 ```
 
 Peer dependencies: `react ^18`, `react-dom ^18`.
+
+## Repo role
+
+- Primary output: publishable npm package
+- Secondary output: generated standalone CSS and iTerm theme files under `dist-themes/`
+- No runtime services, background jobs, or deployment manifests
+
+## Architecture overview
+
+```text
+token JSON
+  -> typed token schema
+  -> CSS variable export
+  -> iTerm2 theme export
+  -> React components consume the same CSS variables
+```
+
+Main source areas:
+
+| Path | Purpose |
+| --- | --- |
+| `src/components/` | React UI primitives such as panels, tabs, tables, badges, and shell wrappers |
+| `src/tokens/` | Theme token JSON plus the typed token schema |
+| `src/themes/` | CSS and iTerm export functions |
+| `src/styles/` | package-level CSS |
+| `src/demo/` | local showcase app |
+| `scripts/export-*.ts` | theme artifact generation |
 
 ---
 
@@ -131,6 +160,54 @@ import { tokensToCss, tokensToIterm } from '@feanor08/terminal-ui';
 const css = tokensToCss(MY_THEME, ':root');
 const plist = tokensToIterm(MY_THEME);
 ```
+
+## Package surface
+
+Exports from `src/index.ts` include:
+
+- React components such as `TerminalShell`, `TerminalPanel`, `TerminalTable`, `TerminalTabs`, and `TerminalCommandBar`
+- token constants `TERMINAL_DARK`, `TERMINAL_LIGHT`, `ALL_THEMES`
+- conversion helpers `tokensToCss` and `tokensToIterm`
+
+## Environment variables
+
+No runtime environment variables are defined in tracked source.
+
+## Local development
+
+```bash
+cd /Volumes/Dex/Adarsh/TheHighGround/terminal-ui
+npm install
+npm run dev
+```
+
+## Build, lint, and export commands
+
+```bash
+npm run build
+npm run lint
+npm run export:iterm
+npm run export:css
+npm run export:themes
+git diff --check
+```
+
+## Data model and APIs
+
+- No database
+- No HTTP routes
+- No persistent runtime state in the repo
+
+## What not to commit
+
+- local package tarballs
+- publish tokens from private experiments unless intentionally versioned
+- generated caches or temporary demo artifacts outside `dist-themes/`
+
+## Open questions and TODOs
+
+- The README documents usage well, but the public API is still labeled unstable.
+- If THG frontends depend on this package, release/versioning policy should be tightened before broader reuse.
 
 ---
 
